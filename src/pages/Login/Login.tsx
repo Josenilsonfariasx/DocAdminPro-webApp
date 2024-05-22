@@ -1,6 +1,6 @@
 import logo from "../../assets/fabrica.png"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { ValidationLogin } from "./ValidationLogin"
@@ -9,10 +9,17 @@ import { ILoginRequest } from "../../types/userTypes"
 import { Input } from "../../components/Input/Input"
 
 export default function Login() {
-    const {login} = useUserContext() 
+    const {login} = useUserContext()
+    const userStorage = localStorage.getItem('user-doc')
     const [loading, setLoading] = useState<boolean>(false)
     const navi = useNavigate()
     
+    useEffect(()=>{
+      if(userStorage){
+        navi('/home')
+      }
+    })
+
     const {
       register,
       handleSubmit,
