@@ -10,16 +10,9 @@ import { Input } from "../../components/Input/Input"
 
 export default function Login() {
     const {login} = useUserContext()
-    const userStorage = localStorage.getItem('user-doc')
     const [loading, setLoading] = useState<boolean>(false)
     const navi = useNavigate()
-    
-    useEffect(()=>{
-      if(userStorage){
-        navi('/home')
-      }
-    })
-
+    const token = localStorage.getItem('token')
     const {
       register,
       handleSubmit,
@@ -27,6 +20,12 @@ export default function Login() {
   } = useForm({
       resolver: zodResolver(ValidationLogin),
   })
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navi('/home');
+    }
+  }, [navi]);
   const submit = async(dataForm: object) => {
     const data = dataForm as ILoginRequest
     setLoading(true)
