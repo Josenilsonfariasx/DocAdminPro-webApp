@@ -4,7 +4,6 @@ import './App.css'
 import { RoutesMain } from './routes/routes'
 
 function App() {
-
   return (
     <>
       <RoutesMain />
@@ -18,7 +17,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme="light"
         />
     </>
   )
