@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import logo from '../../assets/fabrica.png'
 import { Input } from '../../components/Input/Input'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ValidationRegister } from './ValidationRegister'
@@ -11,7 +10,6 @@ import { useUserContext } from '../../providers/UserContext'
 export default function Register() {
     const {registerUser} = useUserContext() 
     const [loading, setLoading] = useState<boolean>(false)
-    const navi = useNavigate()
     
     const {
       register,

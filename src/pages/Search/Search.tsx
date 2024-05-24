@@ -1,15 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Header from "../../components/Header/Header"
-import { useLocation } from "react-router-dom";
 import { useUserContext } from "../../providers/UserContext";
 import { ListDocs } from "../../components/ListDocs/ListDocs";
 
 export const Search = () => {
-  const { getDocsForUser, SearchDocs, searchData, } = useUserContext();
-  const location = useLocation();
+  const { SearchDocs, searchData, } = useUserContext();
   const [searchTerm, setSearchTerm] = useState("");
-  const users = localStorage.getItem('user-doc');
-  const user = users ? JSON.parse(users) : {};
 
   const handleSearchChange =  (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value.toLocaleLowerCase());

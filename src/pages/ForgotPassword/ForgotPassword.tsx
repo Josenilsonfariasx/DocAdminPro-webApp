@@ -1,7 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/fabrica.png";
 import { useUserContext } from "../../providers/UserContext";
-import { toast } from "react-toastify";
 
 export default function Forgot() {
   const { forgotPass } = useUserContext();
@@ -11,7 +10,6 @@ export default function Forgot() {
     event.preventDefault();
     try {
       await forgotPass(email);
-      // toast.success("Código enviado para seu email");
     } catch (error) {
     }
   };

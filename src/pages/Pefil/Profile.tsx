@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { UserCircleIcon } from '@heroicons/react/24/solid';
 import Header from '../../components/Header/Header';
-import { useNavigate } from 'react-router-dom'; 
 import ModalProfile from '../../components/ModalAlert/ModalAlert';
 
 export default function UserProfileForm() {
   const user = localStorage.getItem('user-doc');
   const userDoc = user ? JSON.parse(user) : {};
-  const navigate = useNavigate();
   const [email, setEmail] = useState(userDoc.email || '');
   const [name, setName] = useState(userDoc.name || '');
   const [open, setOpen] = useState(false)

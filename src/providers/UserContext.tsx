@@ -99,6 +99,7 @@ Api.interceptors.response.use(
     try {
       const { data } = await Api.post("users/create", form);
       toast.success("Cadastro concluído ✅");
+      data
       navi('/')
     } catch (error: any) {
       if (error.response.data.errors.email) {
@@ -218,6 +219,7 @@ Api.interceptors.response.use(
           Authorization: `Bearer ${token}`,
         }
       });
+      data
       setFiles((prevFiles) => prevFiles.filter((file) => file.id !== id_doc));
       toast.success("Documento deletado com sucesso ");
     } catch (error) {
@@ -233,6 +235,7 @@ Api.interceptors.response.use(
           Authorization: `Bearer ${token}`,
         }
       });
+      data
       setFiles((prevFiles) => prevFiles.map((file) => {
         if(file.id === id_doc){
           return {...file, file_name: `${name}.pdf`}
@@ -258,6 +261,7 @@ Api.interceptors.response.use(
           Authorization: `Bearer ${token}`,
         },
       });
+      data
       localStorage.clear()
       toast.success('Atualização concluida')
       toast.success('Faça login apos mudar suas informações')
@@ -308,6 +312,7 @@ Api.interceptors.response.use(
       })
       toast.success('Codigo confirmado com sucesso')
       navi('/password')
+      data
     } catch (error:any) {
       if(error.response.data.errors == 'Invalid code.'){
         toast.error('Codigo invalido')
@@ -328,6 +333,7 @@ Api.interceptors.response.use(
       })
         toast.success('Senha alterada com sucesso')
         navi('/')
+        data
       } catch (error:any) {
         if(error.response.data.errors == 'User not found.'){
           toast.error('Usuario nao encontrado')

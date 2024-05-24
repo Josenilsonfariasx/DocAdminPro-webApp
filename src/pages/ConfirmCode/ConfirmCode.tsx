@@ -1,7 +1,6 @@
 import { useState } from "react";
 import logo from "../../assets/fabrica.png";
 import { useUserContext } from "../../providers/UserContext";
-import { toast } from "react-toastify";
 
 export default function ConfirmCode() {
   const { code } = useUserContext();

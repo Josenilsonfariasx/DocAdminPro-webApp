@@ -12,7 +12,6 @@ export default function Login() {
     const {login} = useUserContext()
     const [loading, setLoading] = useState<boolean>(false)
     const navi = useNavigate()
-    const token = localStorage.getItem('token')
     const {
       register,
       handleSubmit,
