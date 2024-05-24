@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import { useEffect, } from "react";
 import { Card, LineChart } from "@tremor/react";
 import Header from "../../components/Header/Header";
 import { ProgressBarStorage } from "../../components/ProgressBar/ProgressBar";
 import { useUserContext } from "../../providers/UserContext";
 
 export const Dashboard = () => {
-  const { chartData, getDataForDashboard, getUserInSystem } = useUserContext();
+  const { chartData, getDataForDashboard, getUserInSystem, getDocsForUser, user, sizeDocs } = useUserContext();
   const documents = localStorage.getItem('docs');
   const users = localStorage.getItem('users_');
 
   useEffect(() => {
+    getDocsForUser();
     getDataForDashboard();
     getUserInSystem();
-  }, [1]);
+  }, [location, user]);
   return (
     <>
       <div className="flex justify-center">
@@ -41,7 +42,7 @@ export const Dashboard = () => {
         />
       </div>
       <div className="mx-auto mt-10 flex flex-wrap w-full md:w-9/12 items-center justify-between gap-8">
-        <ProgressBarStorage />
+        <ProgressBarStorage value={sizeDocs}/>
         <Card className="mx-auto max-w-xs flex-col items-center">      
           <p className="text-center text-amber-400">Numero de Usuarios do Sistema: {users}</p>
         </Card>
