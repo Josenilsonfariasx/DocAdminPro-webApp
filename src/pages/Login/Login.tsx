@@ -67,7 +67,7 @@ return (
                   Password
                 </label>
                 <div className="text-sm">
-                  <a href="#" className="font-semibold text-amber-400 hover:text-amber-200">
+                  <a href="/forgot" className="font-semibold text-amber-400 hover:text-amber-200">
                     Esqueceu sua senha?
                   </a>
                 </div>
