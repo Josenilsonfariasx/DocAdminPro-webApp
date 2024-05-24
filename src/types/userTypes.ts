@@ -1,7 +1,7 @@
 export interface IUser {
   id: string;
-  name: string;
-  email: string;
+  name?: string;
+  email?: string;
   password: string;
   space_used: string;
   created_at: string;
@@ -11,6 +11,7 @@ export interface IUser {
 export interface ICreateUser extends Pick<IUser, 'name' | 'email' | 'password'> {}
 
 export interface ILoginRequest extends Pick<IUser, 'email' | 'password'>{}
+export interface IuserEdir extends Pick<IUser, 'name' | 'email'>{}
 
 export interface ILoginResponse extends Omit<IUser, 'password'> {
   token: string;
