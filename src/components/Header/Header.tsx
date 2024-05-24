@@ -14,7 +14,7 @@ export default function Header() {
     <header className="bg-white fixed w-9/12 top-4 left-0 right-0 mx-auto mb-0">
       <nav className="mx-auto flex w-9/12 items-center justify-between gap-9" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/home" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-12 w-auto" src={logo} alt="" />
           </a>
@@ -30,13 +30,13 @@ export default function Header() {
         </div>
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
+          <a href="/docs" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
             Documentos
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
+          <a href="/filter" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
             Buscas
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
+          <a href="/profile" className="text-sm font-semibold leading-6 text-gray-900 border-b-2 hover:text-amber-200">
             Perfil
           </a>
         </Popover.Group>
@@ -59,7 +59,7 @@ export default function Header() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between w-full  ">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/home" className="-m-1.5 p-1.5">
               <img
                 className="h-10 w-auto"
                 src={logo}
@@ -81,19 +81,19 @@ export default function Header() {
                 <Disclosure as="div" className="-mx-3">
                 </Disclosure>
                 <a
-                  href="#"
+                  href="/docs"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-amber-200"
                 >
                   Documentos
                 </a>
                 <a
-                  href="#"
+                  href="/filter"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-amber-200"
                 >
                   Filtros
                 </a>
                 <a
-                  href="#"
+                  href="/profile"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-amber-200"
                 >
                   Perfil
@@ -101,7 +101,10 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <a
-                  href="#"
+                  onClick={()=>{
+                    localStorage.clear()
+                    navi('/')
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 hover:text-amber-200"
                 >
                   Sair
