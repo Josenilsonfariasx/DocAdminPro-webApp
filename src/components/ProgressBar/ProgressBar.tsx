@@ -1,8 +1,9 @@
 import { Card, ProgressBar } from '@tremor/react';
-export function ProgressBarStorage() {
-  const userStorageItem = localStorage.getItem('user-doc');
-  const userStorage = userStorageItem ? JSON.parse(userStorageItem) : null;
-  const value = userStorage?.space_used
+export interface Props{
+  value: string | undefined | Number | null;
+}
+
+export function ProgressBarStorage({value}:Props) {
   const valueInGB = Number(value) / 1024;
   const percentage = (valueInGB / 2) * 100;
 
